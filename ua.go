@@ -326,8 +326,13 @@ func Parse(userAgent string) UserAgent {
 		fallthrough
 
 	case tokens.exists(Chrome):
-		ua.Name = Chrome
-		ua.Version = tokens.get(Chrome)
+		if name := tokens.findBestMatch(false); name != "" {
+			ua.Name = name
+			ua.Version = tokens.get(name)
+		} else {
+			ua.Name = Chrome
+			ua.Version = tokens.get(Chrome)
+		}
 		ua.Mobile = tokens.existsAny(Mobile, MobileSafari)
 
 	case tokens.exists("Brave Chrome"):
