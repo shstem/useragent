@@ -520,7 +520,7 @@ func checkVer(s string) property {
 // ignore returns true if token should be ignored
 func ignore(s string) bool {
 	switch s {
-	case "KHTML, like Gecko", "U", "compatible", Mozilla, "WOW64", "en", "en-us", "en-gb", "ru-ru", "Browser":
+	case "KHTML, like Gecko", "U", "compatible", Mozilla, "Win64", "WOW64", "en", "en-us", "en-gb", "ru-ru", "Browser":
 		return true
 	default:
 		return false
