@@ -326,7 +326,7 @@ func Parse(userAgent string) UserAgent {
 		fallthrough
 
 	case tokens.exists(Chrome):
-		if name := tokens.findBestMatch(false); name != "" {
+		if name := tokens.findBestMatch(true); name != "" {
 			ua.Name = name
 			ua.Version = tokens.get(name)
 		} else {
